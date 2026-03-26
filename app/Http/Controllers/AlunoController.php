@@ -91,17 +91,61 @@ class AlunoController extends Controller
     public function insert (){
         echo "<h1> INSERT </h1>";
 
-        // Inserir novo registro
+        /* Inserir novo registro
 
-        $aluno = new Aluno();
-        $aluno->nome = "Maria Silva";
-        $aluno->curso = "Engenharia";
-        $aluno->matricula = "123";
-        $aluno->save();
+          $aluno = new Aluno();
+          $aluno->nome = "Maria Silva";
+          $aluno->curso = "Engenharia";
+          $aluno->matricula = "123";
+          $aluno->save();
+         */
+        /* 
+       Aluno::create([
+            'nome' => 'João Pereira',
+            'curso' => 'Medicina',
+            'matricula' => '125'
+        ]);
+        */
+
+
+        //Não preenche campos automaticamente
+        Aluno::insert([
+        [
+            'nome' => 'Ana Martins',
+            'curso' => 'Direito',
+            'matricula' => '128',
+            'created_at' => now(),
+            'updated_at' => now()
+          
+        ],
+        [
+            'nome' => 'Carlos Santos',
+            'curso' => 'Arquitetura',
+            'matricula' => '129',
+            'created_at' => now(),
+            'updated_at' => now()
+    
+        ]
+
+        ]);
     }
 
     public function update (){
         echo "<h1> UPDATE </h1>";
+        try {
+            //Buscar o registro a ser atualizado
+            $aluno = Aluno::find(1);    
+
+            //Atualizar dados
+            $aluno->nome = "João Farinha";
+            $aluno->curso = "Engenharia Atualizado";
+            $aluno->matricula = "120139";
+            $aluno->save();
+
+        } catch (\Exception $e) {
+            echo "Erro ao atualizar dados";
+        }
+
     }
 
     public function delete (){
