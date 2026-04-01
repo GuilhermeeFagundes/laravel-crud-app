@@ -23,3 +23,6 @@ Route::get('/update', [AlunoController::class, 'update'])
 
 Route::get('/delete', [AlunoController::class, 'delete'])
 ->name('delete'); // nome da rota
+
+Route::get('/sql', [AlunoController::class, 'sql'])
+->name('sql'); // nome da rota

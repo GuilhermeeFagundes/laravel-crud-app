@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Aluno;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class AlunoController extends Controller
 {
@@ -158,7 +160,80 @@ class AlunoController extends Controller
 
     public function delete (){
         echo "<h1> DELETE </h1>";
-        $aluno = Aluno::find(20);
-        $aluno->delete();
+        // $aluno = Aluno::find(20);
+        // $aluno->delete();
+
+        //Deletar varios registros
+
+        // Aluno::where('id', '>', 17)->delete();
+
+        // Aluno::destroy(17);
+
+        
+        // Aluno::destroy([29, 30]);
+
+
+        /*Apaga todos os registros da tabela
+        Aluno::truncate();
+        */
+        
+    }
+
+    public function sql(){
+        echo "<h1> SQL </h1>";
+    
+        /*
+        $alunos = DB::select('SELECT * FROM alunos');
+    
+        // foreach ($alunos as $aluno) { // Singular aqui
+        //     echo "ID: ".$aluno->id." - NOME: ".$aluno->nome. " Curso: ".$aluno->curso."<hr>";
+        // }
+        */
+
+        /*
+        
+        SELECT COM ID
+        $id = 5;
+        $alunos = DB::select('SELECT * FROM alunos WHERE id =  ?', [$id]);
+    
+        foreach ($alunos as $aluno) { // Singular aqui
+            echo "ID: ".$aluno->id." - NOME: ".$aluno->nome. " Curso: ".$aluno->curso."<hr>";
+        }
+
+        */
+
+       //-----------------------------------------\\
+        /*
+       $nome = "A%";
+
+       $alunos = DB::select('SELECT * FROM alunos WHERE nome LIKE ?', [$nome]);
+    
+        foreach ($alunos as $aluno) { // Singular aqui
+            echo "ID: ".$aluno->id." - NOME: ".$aluno->nome. " Curso: ".$aluno->curso."<hr>";
+        }
+        */
+
+        //INSERT
+        /*
+        DB::insert('INSERT INTO alunos(nome, curso, matricula, created_at, updated_at) VALUES (?, ?, ?, ?, ?)', [
+            'Teste SQL',
+            'Curso Teste',
+            '126',
+            now(),
+            now()
+
+        ]);
+        */
+
+        //UPDATE
+        /*
+        $id = 1;
+        DB::update('UPDATE alunos SET curso = ?, updated_at = ? WHERE id = ?', ['Engenharia Atualizado SQL', now(), $id]); 
+        */
+
+        $id = 28;
+        DB::delete('DELETE FROM alunos WHERE id = ?',
+        [$id]);
+
     }
 }
