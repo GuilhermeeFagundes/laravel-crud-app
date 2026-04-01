@@ -132,23 +132,33 @@ class AlunoController extends Controller
 
     public function update (){
         echo "<h1> UPDATE </h1>";
-        try {
-            //Buscar o registro a ser atualizado
-            $aluno = Aluno::find(1);    
+        // try {
+        //     //Buscar o registro a ser atualizado
+        //     $aluno = Aluno::find(1);    
 
-            //Atualizar dados
-            $aluno->nome = "João Farinha";
-            $aluno->curso = "Engenharia Atualizado";
-            $aluno->matricula = "120139";
-            $aluno->save();
+        //     //Atualizar dados
+        //     $aluno->nome = "João Farinha";
+        //     $aluno->curso = "Engenharia Atualizado";
+        //     $aluno->matricula = "120139";
+        //     $aluno->save();
 
-        } catch (\Exception $e) {
-            echo "Erro ao atualizar dados";
-        }
+        // } catch (\Exception $e) {
+        //     echo "Erro ao atualizar dados";
+        // }
+
+        //Atualizar vários registros//
+        Aluno::where('id', '>', 5)->update([
+            'curso' => 'Curso Atualizado'
+        ]);
+        
+
+
 
     }
 
     public function delete (){
         echo "<h1> DELETE </h1>";
+        $aluno = Aluno::find(20);
+        $aluno->delete();
     }
 }
