@@ -23,6 +23,7 @@ Cadastro de Usuário
     name="nome" 
     class="form-control" 
     placeholder="Digite o nome completo"
+    value="{{ old('nome')}}"
 =
 >
 </div>
@@ -37,6 +38,7 @@ Cadastro de Usuário
     name="email" 
     class="form-control" 
     placeholder="Digite o email"
+    value="{{ old('email')}}"
 =
 >
 </div>

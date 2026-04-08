@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Usuarios;
 
 class UsuariosController extends Controller
 {
@@ -27,5 +28,14 @@ class UsuariosController extends Controller
             "senha.required" => "O campo senha é obrigatório",
             "senha.min" => "A senha deve conter no mínimo 6 caracteres"
         ]);
+        
+        $usuario = new Usuarios();
+        $usuario->usu_nome = $request->nome;
+        $usuario->usu_email = $request->email;
+        $usuario->usu_senha = $request->senha;
+        
+          echo "<pre>";
+          print_r($usuario);
+          echo"</pre>";
     }
 }
