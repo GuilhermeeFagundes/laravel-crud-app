@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\UsuariosController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,3 +27,25 @@ Route::get('/delete', [AlunoController::class, 'delete'])
 
 Route::get('/sql', [AlunoController::class, 'sql'])
 ->name('sql'); // nome da rota
+
+
+
+
+//-------------------------------------------
+// Usuários
+//-------------------------------------------
+
+
+
+// Route::    -> Chama a classe responsável por gerir as rotas da aplicação.
+// get(...)   -> Define que esta rota responde apenas a requisições do tipo GET (visualização).
+// "/usuario-form" -> É o endereço (URL) que o utilizador digita no navegador.
+
+// [UsuariosController::class, 'usuarioForm'] 
+//            -> Indica ao Laravel: "Vai à classe UsuariosController e executa a função usuarioForm".
+Route::get("/usuario-form", [UsuariosController::class, 'usuarioForm'])
+->name("usuario-form");
+// ->name("usuario-form") 
+
+Route::post("/usuario-form-submit", [UsuariosController::class, 'usuarioFormSubmit'])
+->name("usuario-form-submit");

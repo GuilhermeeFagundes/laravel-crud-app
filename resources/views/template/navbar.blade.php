@@ -18,14 +18,14 @@
 <ul class="navbar-nav me-auto">
 
 <li class="nav-item">
-<a class="nav-link" href="#">
+<a class="nav-link" href="/">
 <i class="bi bi-house"></i> Home
 </a>
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="#">
-<i class="bi bi-people"></i> Usuários
+<a class="nav-link" href="{{ route('usuario-form')}}">
+<i class="bi bi-people"></i> Cadastrar Usuários
 </a>
 </li>
 
