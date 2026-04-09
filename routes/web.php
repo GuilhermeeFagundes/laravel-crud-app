@@ -49,3 +49,6 @@ Route::get("/usuario-form", [UsuariosController::class, 'usuarioForm'])
 
 Route::post("/usuario-form-submit", [UsuariosController::class, 'usuarioFormSubmit'])
 ->name("usuario-form-submit");
+
+Route::get("/usuario-lista", [UsuariosController::class, 'usuarioLista'])
+->name("usuario-lista");

@@ -38,4 +38,14 @@ class UsuariosController extends Controller
         
          return redirect()->route("usuario-form")->with("success", "Usuário cadastrado com sucesso!");
     }
+
+    // exibir a lista de usuários cadastrados
+    public function usuarioLista(){
+      
+     
+        $usuarios = Usuarios::all();
+        // Retorna o ficheiro 'resources/views/usuario-lista-todos.blade.php' passando a variável $usuarios para ser usada lá como $usuarios.
+        return view("usuario-lista-todos", ["usuarios" => $usuarios]);
+
+    }
 }

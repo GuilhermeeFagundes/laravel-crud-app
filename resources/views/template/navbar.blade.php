@@ -30,6 +30,12 @@
 </li>
 
 <li class="nav-item">
+<a class="nav-link" href="{{ route('usuario-lista')}}">
+<i class="bi bi-people"></i> Listar Usuários
+</a>
+</li>
+
+<li class="nav-item">
 <a class="nav-link" href="#">
 <i class="bi bi-box-seam"></i> Produtos
 </a>
