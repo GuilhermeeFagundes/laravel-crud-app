@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Usuarios;
+use Illuminate\Support\Facades\Crypt;
 
 class UsuariosController extends Controller
 {
@@ -32,10 +33,9 @@ class UsuariosController extends Controller
         $usuario = new Usuarios();
         $usuario->usu_nome = $request->nome;
         $usuario->usu_email = $request->email;
-        $usuario->usu_senha = $request->senha;
+        $usuario->usu_senha = Crypt::encrypt($request->senha);
+        $usuario->save();
         
-          echo "<pre>";
-          print_r($usuario);
-          echo"</pre>";
+         return redirect()->route("usuario-form")->with("success", "Usuário cadastrado com sucesso!");
     }
 }

@@ -79,6 +79,13 @@ Cadastrar
 </form>
 
 </div>
+
+@if(session("success"))
+<div class= "alert alert-success m-3">
+    {{session("success")}}
+</div>
+@endif
+
 </div>
 
 </main>
