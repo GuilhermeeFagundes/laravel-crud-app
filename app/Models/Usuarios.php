@@ -11,7 +11,7 @@ class Usuarios extends Model
     use HasFactory;
 
     protected $table = 'usuarios';
-    protected $primarykey = 'usu_id';
+    protected $primaryKey = 'usu_id';
     
     public $timestamps = false;
 

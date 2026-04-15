@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Usuarios;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Http\Request;
 
 class UsuariosController extends Controller
 {
@@ -46,6 +46,20 @@ class UsuariosController extends Controller
         $usuarios = Usuarios::all();
         // Retorna o ficheiro 'resources/views/usuario-lista-todos.blade.php' passando a variável $usuarios para ser usada lá como $usuarios.
         return view("usuario-lista-todos", ["usuarios" => $usuarios]);
+
+    }
+
+    // carregar o formulário de edição de usuário
+    public function usuarioEdit($id){
+        $id = Crypt::decrypt($id);
+        $usuario = Usuarios::find($id);
+
+        return view("usuario-edit", ["usuario" => $usuario]);
+    }
+
+
+    //Validar e processar o formulário de edição de usuário
+    public function usuarioEditSubmit(){
 
     }
 }

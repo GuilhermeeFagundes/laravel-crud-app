@@ -11,7 +11,7 @@
 Usuários
 </h3>
 
-<a href="#" class="btn btn-success">
+<a href="{{route('usuario-form')}}" class="btn btn-success">
 <i class="bi bi-person-plus"></i>
 </a>
 
@@ -41,7 +41,8 @@ Usuários
 
                         <p class="text-muted mb-0">
                             <i class="bi bi-envelope"></i>
-                            {{$usuario->usu_email}}                           
+                            {{$usuario->usu_email}}
+                            <!-- {{Crypt::decrypt($usuario->usu_senha)}}                            -->
                         </p>
 
                     </div>
@@ -49,7 +50,7 @@ Usuários
                     <div class="card-footer d-flex justify-content-end gap-2">
 
                         <!-- EDITAR -->
-                        <a href="#"
+                        <a href="{{route('usuario-edit', ['id' => Crypt::encrypt($usuario->usu_id)])}}"
                             class="btn btn-primary btn-sm"
                             title="Editar">
                             <i class="bi bi-pencil"></i>
