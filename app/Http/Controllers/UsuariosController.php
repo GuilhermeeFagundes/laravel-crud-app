@@ -59,7 +59,9 @@ class UsuariosController extends Controller
 
 
     //Validar e processar o formulário de edição de usuário
-    public function usuarioEditSubmit(){
-
+    public function usuarioEditSubmit(Request $request){
+        echo '<pre>';
+        print_r($request->all());
+        echo '</pre>';
     }
 }

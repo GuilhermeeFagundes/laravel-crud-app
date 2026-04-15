@@ -13,7 +13,7 @@
 Cadastro de Usuário
 </h3>
 
-<form method="POST" action="#">
+<form method="POST" action="{{route('usuario-edit-submit')}}">
 @csrf
 
 <input type="hidden" name="id" value ="{{Crypt::encrypt($usuario->usu_id)}}">
