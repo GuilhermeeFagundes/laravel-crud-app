@@ -60,3 +60,8 @@ Route::get("/usuario-edit/{id}", [UsuariosController::class, 'usuarioEdit'])
 
 Route::post("/usuario-edit-submit", [UsuariosController::class, 'usuarioEditSubmit'])
 ->name("usuario-edit-submit");
+
+Route::get("/usuario-delete/{id}",[UsuariosController::class,'usuarioDelete'])->name("usuario-delete");
+
+
+Route::post("/usuario-delete-submit",[UsuariosController::class,'usuarioDeleteSubmit'])->name("usuario-delete-submit");

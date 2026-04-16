@@ -57,18 +57,12 @@ Usuários
                         </a>
 
                         <!-- DELETAR -->
-                        <form method="POST"
-                            action="#"
-                            onsubmit="return confirm('Deseja excluir este usuário?')">
 
+                        <a href="{{route('usuario-delete', ['id' => Crypt::encrypt($usuario->usu_id)])}}" class="btn btn-danger btn-sm">
+                        <i class="bi bi-trash"></i> 
+                        </a>
 
-
-
-                            <button class="btn btn-danger btn-sm" title="Excluir">
-                                <i class="bi bi-trash"></i>
-                            </button>
-
-                        </form>
+                        
 
                     </div>
 
@@ -78,6 +72,15 @@ Usuários
             @endforeach
 
         @endif
+
+        @if(session("success")) 
+              
+            <div class="alert alert-success m-3">
+                {{session("success")}}
+            </div>
+            
+        @endif 
+
 </div>
 
 </main>
