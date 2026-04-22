@@ -104,7 +104,10 @@ class UsuariosController extends Controller
      }
 
      public function usuarioDeleteSubmit($id) {
-     
+        $usuario = Usuarios::find(Crypt::decrypt($id));
+        $usuario->delete();
+
+        return redirect()->route("usuario-lista")->with("sucess", "Usuário deletado com sucesso!");
      }
  }
  

@@ -64,4 +64,9 @@ Route::post("/usuario-edit-submit", [UsuariosController::class, 'usuarioEditSubm
 Route::get("/usuario-delete/{id}",[UsuariosController::class,'usuarioDelete'])->name("usuario-delete");
 
 
-Route::post("/usuario-delete-submit",[UsuariosController::class,'usuarioDeleteSubmit'])->name("usuario-delete-submit");
+Route::get("/usuario-delete-submit/{id}",[UsuariosController::class,'usuarioDeleteSubmit'])->name("usuario-delete-submit");
+
+
+Route::get('/index', function () {
+    return view ('welcome');
+});
