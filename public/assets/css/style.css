@@ -28,3 +28,13 @@ main{
     font-size:1.4rem;
     margin-right:10px;
 }
+
+
+/*Login*/
+
+.login{
+min-height: 90vh;
+display:flex;
+justify-content: center;
+align-items: center;
+}

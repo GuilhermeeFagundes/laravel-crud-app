@@ -19,3 +19,47 @@
 
 <body>
 
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+<div class="container">
+
+<a class="navbar-brand" href="#">
+<i class="bi bi-box"></i> Sistema
+</a>
+
+
+
+</div>
+
+
+<!-- LOGOUT -->
+
+</nav>
+
+
+
+
+
+
+
+<!------------------->
+<div class="login">
+   <h3>
+    <i class = "bi bi=box"></i>
+    Sistemas
+   </h3>
+</div>
+
+
+<!-- FOOTER -->
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>
