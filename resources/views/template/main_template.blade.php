@@ -5,13 +5,13 @@
 
 <main class="container mt-5">
 
-<div class="card shadow">
+    <div class="card shadow">
 
-    <div class="card-body">
-        @yield('content')
+        <div class="card-body">
+            @yield('content')
+        </div>
+
     </div>
-
-</div>
 
 </main>
 

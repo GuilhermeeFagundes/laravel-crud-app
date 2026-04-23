@@ -67,9 +67,9 @@ Route::get("/usuario-delete/{id}",[UsuariosController::class,'usuarioDelete'])->
 
 Route::get("/usuario-delete-submit/{id}",[UsuariosController::class,'usuarioDeleteSubmit'])->name("usuario-delete-submit");
 
-//-------------------------
+//-------------------------------------------
 // Autenticação
-//-------------------------
+//-------------------------------------------
 
 
 Route::get('/index', function () {

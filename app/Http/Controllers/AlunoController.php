@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\DB;
 
 class AlunoController extends Controller
 {
-    public function select (){
+    public function select()
+    {
         echo "<h1> SELECT </h1>";
 
         //Buscar todos os registros
@@ -49,36 +50,36 @@ class AlunoController extends Controller
              } catch (\Exception $e) {
              echo "Registro não encontrado";
          } */
-        
+
         //Buscar o primeiro registro que atenda uma condição
-      try {
+        try {
             $aluno = Aluno::where('id', '>', 5)->first()->toArray();
-            echo "ID: ".$aluno['id']." - NOME: ".$aluno['nome']. " Curso: ".$aluno['curso']."<hr>";
+            echo "ID: " . $aluno['id'] . " - NOME: " . $aluno['nome'] . " Curso: " . $aluno['curso'] . "<hr>";
 
         } catch (\Exception $e) {
             echo "Registro não encontrado";
         }
-    
-    // select count(*) from alunos
+
+        // select count(*) from alunos
         $totalAlunos = Aluno::count();
         echo "Total de alunos: " . $totalAlunos;
 
 
-    //select avg(id) from alunos
-    $mediaId = Aluno::avg('id');
-    echo "<br>Média dos Ids: ". $mediaId;
+        //select avg(id) from alunos
+        $mediaId = Aluno::avg('id');
+        echo "<br>Média dos Ids: " . $mediaId;
 
-    //select sum(id) from alunos
-    $somaId = Aluno::sum('id');
-    echo "<br>Soma dos Ids: ". $somaId;
+        //select sum(id) from alunos
+        $somaId = Aluno::sum('id');
+        echo "<br>Soma dos Ids: " . $somaId;
 
-    //select max(id) from alunos
-    $maxId = Aluno::max('id');
-    echo "<br>Maximo dos Ids: ". $maxId;
+        //select max(id) from alunos
+        $maxId = Aluno::max('id');
+        echo "<br>Maximo dos Ids: " . $maxId;
 
-    //select min(id) from alunos
-    $minId = Aluno::min('id');
-    echo "<br>Minimo dos Ids: ". $minId;
+        //select min(id) from alunos
+        $minId = Aluno::min('id');
+        echo "<br>Minimo dos Ids: " . $minId;
 
         // echo "<pre>";
         // print_r($alunos);
@@ -90,7 +91,8 @@ class AlunoController extends Controller
 
     }
 
-    public function insert (){
+    public function insert()
+    {
         echo "<h1> INSERT </h1>";
 
         /* Inserir novo registro
@@ -112,27 +114,28 @@ class AlunoController extends Controller
 
         //Não preenche campos automaticamente
         Aluno::insert([
-        [
-            'nome' => 'Ana Martins',
-            'curso' => 'Direito',
-            'matricula' => '128',
-            'created_at' => now(),
-            'updated_at' => now()
-          
-        ],
-        [
-            'nome' => 'Carlos Santos',
-            'curso' => 'Arquitetura',
-            'matricula' => '129',
-            'created_at' => now(),
-            'updated_at' => now()
-    
-        ]
+            [
+                'nome' => 'Ana Martins',
+                'curso' => 'Direito',
+                'matricula' => '128',
+                'created_at' => now(),
+                'updated_at' => now()
+
+            ],
+            [
+                'nome' => 'Carlos Santos',
+                'curso' => 'Arquitetura',
+                'matricula' => '129',
+                'created_at' => now(),
+                'updated_at' => now()
+
+            ]
 
         ]);
     }
 
-    public function update (){
+    public function update()
+    {
         echo "<h1> UPDATE </h1>";
         // try {
         //     //Buscar o registro a ser atualizado
@@ -152,13 +155,14 @@ class AlunoController extends Controller
         Aluno::where('id', '>', 5)->update([
             'curso' => 'Curso Atualizado'
         ]);
-        
+
 
 
 
     }
 
-    public function delete (){
+    public function delete()
+    {
         echo "<h1> DELETE </h1>";
         // $aluno = Aluno::find(20);
         // $aluno->delete();
@@ -169,45 +173,46 @@ class AlunoController extends Controller
 
         // Aluno::destroy(17);
 
-        
+
         // Aluno::destroy([29, 30]);
 
 
         /*Apaga todos os registros da tabela
         Aluno::truncate();
         */
-        
+
     }
 
-    public function sql(){
+    public function sql()
+    {
         echo "<h1> SQL </h1>";
-    
+
         /*
         $alunos = DB::select('SELECT * FROM alunos');
-    
+
         // foreach ($alunos as $aluno) { // Singular aqui
         //     echo "ID: ".$aluno->id." - NOME: ".$aluno->nome. " Curso: ".$aluno->curso."<hr>";
         // }
         */
 
         /*
-        
+
         SELECT COM ID
         $id = 5;
         $alunos = DB::select('SELECT * FROM alunos WHERE id =  ?', [$id]);
-    
+
         foreach ($alunos as $aluno) { // Singular aqui
             echo "ID: ".$aluno->id." - NOME: ".$aluno->nome. " Curso: ".$aluno->curso."<hr>";
         }
 
         */
 
-       //-----------------------------------------\\
+        //-----------------------------------------\\
         /*
        $nome = "A%";
 
        $alunos = DB::select('SELECT * FROM alunos WHERE nome LIKE ?', [$nome]);
-    
+
         foreach ($alunos as $aluno) { // Singular aqui
             echo "ID: ".$aluno->id." - NOME: ".$aluno->nome. " Curso: ".$aluno->curso."<hr>";
         }
@@ -232,8 +237,10 @@ class AlunoController extends Controller
         */
 
         $id = 28;
-        DB::delete('DELETE FROM alunos WHERE id = ?',
-        [$id]);
+        DB::delete(
+            'DELETE FROM alunos WHERE id = ?',
+            [$id]
+        );
 
     }
 }
