@@ -71,10 +71,8 @@ Route::get("/usuario-delete-submit/{id}",[UsuariosController::class,'usuarioDele
 // Autenticação
 //-------------------------------------------
 
-
-Route::get('/index', function () {
-    return view ('welcome');
-});
-
 Route::get('/', [AutenticacaoController::class, 'loginForm'])
 -> name('loginForm');
+
+Route::post('/login-form-submit', [AutenticacaoController::class, 'loginFormSubmit'])
+->name('loginFormSubmit');
