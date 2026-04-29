@@ -5,9 +5,6 @@ use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\AutenticacaoController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
 //-------------------------------------------
@@ -71,8 +68,15 @@ Route::get("/usuario-delete-submit/{id}",[UsuariosController::class,'usuarioDele
 // Autenticação
 //-------------------------------------------
 
+Route::get('/index', function () {
+    return view('welcome');
+});
+
+
 Route::get('/', [AutenticacaoController::class, 'loginForm'])
 -> name('loginForm');
 
 Route::post('/login-form-submit', [AutenticacaoController::class, 'loginFormSubmit'])
 ->name('loginFormSubmit');
+
+Route::get("/logout", [AutenticacaoController::class, 'logout'])->name('logout');

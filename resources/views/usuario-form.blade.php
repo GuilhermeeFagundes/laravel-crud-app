@@ -19,7 +19,7 @@
                 <div class="mb-3">
                     <label class="form-label">Nome</label>
                     <input type="text" name="nome" class="form-control" placeholder="Digite o nome completo"
-                        value="{{ old('nome')}}"=>
+                        value="{{ old('nome')}}">
                 </div>
                 @error('nome')
                 <div class="text-danger">{{$message}}</div>
@@ -28,7 +28,7 @@
                 <div class="mb-3">
                     <label class="form-label">Email</label>
                     <input type="email" name="email" class="form-control" placeholder="Digite o email"
-                        value="{{ old('email')}}"=>
+                        value="{{ old('email')}}">
                 </div>
                 @error('email')
                 <div class="text-danger">{{$message}}</div>
@@ -36,7 +36,7 @@
                 <!-- SENHA -->
                 <div class="mb-3">
                     <label class="form-label">Senha</label>
-                    <input type="password" name="senha" class="form-control" placeholder="Digite a senha"=>
+                    <input type="password" name="senha" class="form-control" placeholder="Digite a senha">
                 </div>
 
                 @error('senha')

@@ -45,7 +45,14 @@
 
             <div class="d-flex">
 
-                <a href="#" class="btn btn-danger">
+                <span class = 'navbar-text me-3'>
+
+                <i class="bi bi-person-circle"></i>
+                {{session('nome')}}
+
+                </span>
+
+                <a href="{{ route('logout') }}" class="btn btn-danger">
                     <i class="bi bi-box-arrow-right"></i>
                     Logout
                 </a>
