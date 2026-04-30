@@ -16,11 +16,10 @@ class AutenticacaoMiddleware
     public function handle(Request $request, Closure $next): Response
     {
 
-        if(!$request -> session()->has('id')){
+        if (!$request->session()->has('id')) {
 
             // Verifica se não existe ID do usuário na sessão
             return redirect()->route('loginForm')->with('error', 'Você precisa estar logado para acessar essa página');
-
         }
         return $next($request);
     }
