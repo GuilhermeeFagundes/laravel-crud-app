@@ -15,6 +15,7 @@
 
             <ul class="navbar-nav me-auto">
 
+                @if(!session()->has('id'))
                 <li class="nav-item">
                     <a class="nav-link" href="/">
                         <i class="bi bi-house"></i> Home
@@ -27,6 +28,9 @@
                     </a>
                 </li>
 
+                @endif
+
+                @if(session()->has('id'))
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('usuario-lista')}}">
                         <i class="bi bi-people"></i> Listar Usuários
@@ -34,28 +38,41 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="bi bi-box-seam"></i> Produtos
+                    <a class="nav-link" href="{{route ('produtoForm')}}">
+                        <i class="bi bi-box-seam"></i> Cadastrar Produtos
                     </a>
                 </li>
+
+                @endif
 
             </ul>
 
             <!-- LOGOUT -->
 
             <div class="d-flex">
+                @if(session()->has('id'))
+                <span class='navbar-text me-3'>
 
-                <span class = 'navbar-text me-3'>
-
-                <i class="bi bi-person-circle"></i>
-                {{session('nome')}}
+                    <i class="bi bi-person-circle"></i>
+                    {{session('nome')}}
 
                 </span>
+
+
 
                 <a href="{{ route('logout') }}" class="btn btn-danger">
                     <i class="bi bi-box-arrow-right"></i>
                     Logout
                 </a>
+
+                @else
+
+                <a href="{{ route('loginForm') }}" class="btn btn-secondary">
+                    <i class="bi bi-person-check"></i>
+                    Login
+                </a>
+
+                @endif
 
             </div>
 

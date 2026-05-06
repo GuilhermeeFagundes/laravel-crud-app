@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class ProdutosController extends Controller
 {
-    //
+    public function produtoForm(){
+        return view('produto-cadastrar');
+    }
 }

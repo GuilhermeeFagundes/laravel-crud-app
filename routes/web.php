@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\AutenticacaoController;
-
+use App\Http\Controllers\ProdutosController;
 
 
 //-------------------------------------------
@@ -78,6 +78,14 @@ Route::middleware(['autenticacao'])->group(function () {
 
     Route::get("/logout", [AutenticacaoController::class, 'logout'])
         ->name('logout');
+
+
+
+    //----------------------------------
+    // Rota de Produtos
+    //----------------------------------
+
+    Route::get("/produto-form", [ProdutosController::class, 'produtoForm']) -> name("produtoForm");
 });
 
 
