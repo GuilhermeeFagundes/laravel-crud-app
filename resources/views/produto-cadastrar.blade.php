@@ -13,12 +13,12 @@
                 Cadastro de Produtos
             </h3>
 
-            <form method="POST" action="{{route('usuario-form-submit')}}">
+            <form method="POST" action="{{route('produtoFormSubmit')}}">
                 @csrf
                 <!-- NOME -->
                 <div class="mb-3">
-                    <label class="form-label">Nome</label>
-                    <input type="text" name="nome" class="form-control" placeholder="Digite o nome completo"
+                    <label class="form-label">Nome do Produto</label>
+                    <input type="text" name="nome" class="form-control" placeholder="Digite o nome do produto"
                         value="{{ old('nome')}}">
                 </div>
                 @error('nome')
@@ -26,20 +26,20 @@
                 @enderror
                 <!-- EMAIL -->
                 <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="Digite o email"
-                        value="{{ old('email')}}">
+                    <label class="form-label">Descricao</label>
+                    <input type="text" name="descricao" class="form-control" placeholder="Digite a descrição do produto"
+                        value="{{ old('descricao')}}">
                 </div>
-                @error('email')
+                @error('descricao')
                 <div class="text-danger">{{$message}}</div>
                 @enderror
                 <!-- SENHA -->
                 <div class="mb-3">
-                    <label class="form-label">Senha</label>
-                    <input type="password" name="senha" class="form-control" placeholder="Digite a senha">
+                    <label class="form-label">Preço do Produto</label>
+                    <input type="number" name="preco" class="form-control" placeholder="0.00" step = "0.01">
                 </div>
 
-                @error('senha')
+                @error('preco')
                 <div class="text-danger">{{$message}}</div>
                 @enderror
                 <!-- BOTÕES -->
