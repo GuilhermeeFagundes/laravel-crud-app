@@ -43,6 +43,14 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route ('produtoLista')}}">
+                        <i class="bi bi-box-seam"></i> Listar Produtos
+                    </a>
+                </li>
+
+
+
                 @endif
 
             </ul>

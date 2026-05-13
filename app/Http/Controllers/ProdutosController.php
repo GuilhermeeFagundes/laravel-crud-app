@@ -32,13 +32,23 @@ class ProdutosController extends Controller
 
         Produtos::create([
 
-            'pro_nome' => $request -> nome,
-            'pro_descricao' => $request -> descricao,
-            'pro_preco' => $request -> preco,
+            'pro_nome' => $request->nome,
+            'pro_descricao' => $request->descricao,
+            'pro_preco' => $request->preco,
             'usu_id' => session('id')
 
         ]);
 
         return redirect()->route('produtoForm')->with('success', 'Produto cadastrado com sucesso!');
+    }
+
+    public function produtoLista()
+    {
+
+        $produtos = Produtos::where('usu_id', session('id'))->get();
+
+        return view('produto-lista', [
+            'produtos' => $produtos
+        ]);
     }
 }
