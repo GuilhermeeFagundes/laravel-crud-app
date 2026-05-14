@@ -51,4 +51,13 @@ class ProdutosController extends Controller
             'produtos' => $produtos
         ]);
     }
+
+    public function produtoEdit($id)
+    {
+        $produto = Produtos::where("pro_id", $id)->where("usu_id", session("id"))->firstOrFail();
+        
+        return view("produto-editar", ["produto" => $produto]);
+    }
+
+    public function produtoEditSubmit() {}
 }

@@ -28,10 +28,38 @@
                 <tr>
                     <th>Nome</th>
                     <th>Preço</th>
-                    <th>Quantidade</th>
+                    <th>Descrição</th>
                     <th>Ações</th>
                 </tr>
             </thead>
+
+            <tbody>
+                @if($produtos->count() > 0 )
+
+                    @foreach($produtos as $produto)
+
+                        <tr>
+                            <td>{{ $produto -> pro_nome }}</td>
+                            <td>R$ {{ number_format( $produto -> pro_preco, 2, ',', '.')}}</td>
+                            <td>{{ $produto -> pro_descricao}}</td>
+                            <td>
+                                <a href="{{ route('produtoEdit', [ 'id'  => $produto -> pro_id ]) }}" class="btn btn-sm btn-warning">
+                                    <i class ="bi bi-pencil-square"></i>
+                                    Editar
+                                </a>
+                            </td>
+                        </tr>
+
+                    @endforeach
+
+                @else
+                    <tr>
+                        <td colspan='4' class='text-center'>
+                            Nenhum produto encontrado
+                        </td>
+                    </tr>
+                @endif
+            </tbody>
         </table>
 
         @if(session("success"))

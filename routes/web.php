@@ -88,6 +88,9 @@ Route::middleware(['autenticacao'])->group(function () {
     Route::get("/produto-form", [ProdutosController::class, 'produtoForm']) -> name("produtoForm");
     Route::post("/produto-form-submit", [ProdutosController::class, 'produtoFormSubmit']) -> name("produtoFormSubmit");
     Route::get("/produto-lista", [ProdutosController::class, 'produtoLista']) -> name("produtoLista");
+
+    Route::get("/produto-edit/{id}", [ProdutosController::class, 'produtoEdit']) -> name("produtoEdit");
+    Route::post("/produto-edit-submit", [ProdutosController::class, 'produtoEditSubmit']) -> name("produtoEditSubmit");
 });
 
 
